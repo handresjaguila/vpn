@@ -104,7 +104,7 @@ wg showconf wg0 > client.conf
 #Hacer un código QR
 qrencode -t ansiutf8 < client.conf
 
-#Instalar mutt para envio de correo electronico 
+#Instalar mutt para envio de correo electrónico 
 sudo apt-get install mutt
 
 #Enviar el archivo de conexión a un correo electrónico usando el cliente de correo electrónico de mutt
