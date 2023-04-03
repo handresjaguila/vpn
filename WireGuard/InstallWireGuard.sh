@@ -1,5 +1,7 @@
+#Script made: Henoch Jelvez
+#Use: Install vpn server WireGuard
+#System: Linux 
 #!/bin/bash
-
 # Desinstalar cualquier versión existente de WireGuard
 echo "Desinstalando WireGuard..."
 apt-get remove --purge wireguard -y
@@ -96,7 +98,7 @@ sudo systemctl start wg-quick@wg0.service
 echo "Guardando información de la conexión en el archivo de configuración..."
 sudo wg show wg0 | sed -e '1d' -e 's/peer.*//' | awk '{print "Endpoint = " $1 ":51820\nPublicKey = " $2 "\nAllowedIPs = 0.0.0.0/0\n"}' > wg0.conf
 
-#Hacer un archivo de configuración
+#Hacer un archivo de configuración para enviar a la conexión agente.
 wg showconf wg0 > client.conf
 
 #Hacer un código QR
